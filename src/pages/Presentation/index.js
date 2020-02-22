@@ -45,7 +45,10 @@ export default function Presentation() {
               <TitleBottom>Lugar ideal para</TitleBottom>
               <TitleBottom>encontrar novos pets</TitleBottom>
             </ViewTitleBottom>
-            <ButtonPress title="cadastrar" />
+            <ButtonPress
+              title="cadastrar"
+              onPress={() => navigation.navigate('SignUp')}
+            />
             <ViewSignIn>
               <TitleSign>Já tem conta?</TitleSign>
               <ButtonSignIn onPress={() => navigation.navigate('SignIn')}>

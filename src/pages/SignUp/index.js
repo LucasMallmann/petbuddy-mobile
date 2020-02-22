@@ -22,9 +22,10 @@ import {
   TitleSignUp,
 } from './styles';
 
-export default function SignIn() {
+export default function SignUp() {
   const navigation = useNavigation();
 
+  const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
   return (
@@ -35,16 +36,23 @@ export default function SignIn() {
           <Container>
             <Scroll>
               <ViewTop>
-                <Title>Bem-vindo</Title>
-                <Title>de volta!</Title>
+                <Title>Cadastrar</Title>
+                <Title>conta</Title>
               </ViewTop>
 
               <ViewMiddle>
+                <Input
+                  label="Nome *"
+                  autoCapitalize="words"
+                  returnKeyType="next"
+                  onSubmitEditing={() => emailRef.current.focus()}
+                />
                 <Input
                   label="E-mail *"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   autoCorrect={false}
+                  ref={emailRef}
                   returnKeyType="next"
                   onSubmitEditing={() => passwordRef.current.focus()}
                 />
@@ -58,14 +66,14 @@ export default function SignIn() {
                   onSubmitEditing={() => {}}
                 />
                 <ViewButtonSignIn>
-                  <ButtonSignIn title="entrar" onPress={() => {}} />
+                  <ButtonSignIn title="cadastrar" onPress={() => {}} />
                 </ViewButtonSignIn>
               </ViewMiddle>
 
               <ViewSignUp>
-                <TitleSign>Não tem conta?</TitleSign>
-                <ButtonSignUp onPress={() => navigation.navigate('SignUp')}>
-                  <TitleSignUp>Cadastre-se aqui!</TitleSignUp>
+                <TitleSign>Já tem conta?</TitleSign>
+                <ButtonSignUp onPress={() => navigation.navigate('SignIn')}>
+                  <TitleSignUp>Entre aqui!</TitleSignUp>
                 </ButtonSignUp>
               </ViewSignUp>
             </Scroll>
