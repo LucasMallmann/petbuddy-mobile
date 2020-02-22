@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useNavigation } from '@react-navigation/native';
+
 import {
   SafeAreaView,
   Scroll,
@@ -21,6 +23,8 @@ import {
 } from './styles';
 
 export default function Presentation() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView>
       <Scroll>
@@ -44,7 +48,7 @@ export default function Presentation() {
             <ButtonPress title="cadastrar" />
             <ViewSignIn>
               <TitleSign>Já tem conta?</TitleSign>
-              <ButtonSignIn>
+              <ButtonSignIn onPress={() => navigation.navigate('SignIn')}>
                 <TitleSignIn>Entre aqui!</TitleSignIn>
               </ButtonSignIn>
             </ViewSignIn>

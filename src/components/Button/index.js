@@ -1,11 +1,24 @@
 import React from 'react';
 
-import { ButtonPress, Title } from './styles';
+import PropTypes from 'prop-types';
 
-export default function Button({ title }) {
+import { Container, ButtonPress, Title } from './styles';
+
+export default function Button({ title, onPress }) {
   return (
-    <ButtonPress>
-      <Title>{title}</Title>
-    </ButtonPress>
+    <Container>
+      <ButtonPress onPress={onPress}>
+        <Title>{title}</Title>
+      </ButtonPress>
+    </Container>
   );
 }
+
+Button.propTypes = {
+  title: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+};
+
+Button.defaultProps = {
+  onPress: null,
+};

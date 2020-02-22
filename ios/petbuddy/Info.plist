@@ -64,6 +64,7 @@
 		<string>WorkSans-Regular.ttf</string>
 		<string>WorkSans-SemiBold.ttf</string>
 		<string>WorkSans-Thin.ttf</string>
+    <string>MaterialIcons.ttf</string>
 	</array>
 </dict>
 </plist>
