@@ -1,10 +1,15 @@
 export default {
   primary: '#7239F2',
+  primary_light: '#F7F3FE',
   yellow: '#FFB900',
   green: '#52E596',
   gray: '#BABABA',
+  gray_medium: '#BFBFBF',
+  gray_light: '#D9D9D9',
+  gray_soft: '#A2A2A2',
   purple_light: '#BFA5F9',
   purple_semi_light: '#C578FF',
   white: '#fff',
   dark_soft: '#484848',
+  dark_gray: '#747474',
 };
