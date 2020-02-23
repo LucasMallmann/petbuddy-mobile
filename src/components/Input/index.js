@@ -4,9 +4,27 @@ import PropTypes from 'prop-types';
 
 import { colors } from '~/styles/themes';
 
-import { Container, InputForm, ButtonIcon, IconCustom } from './styles';
+import {
+  Container,
+  InputForm,
+  ButtonIcon,
+  IconCustom,
+  ErroMsg,
+} from './styles';
 
-function Input({ name, label, keyboardType, iconPass, ...rest }, ref) {
+function Input(
+  {
+    name,
+    label,
+    keyboardType,
+    iconPass,
+    defaultValue,
+    touched,
+    errors,
+    ...rest
+  },
+  ref
+) {
   const [visible, setVisible] = useState(true);
 
   return (
@@ -16,10 +34,11 @@ function Input({ name, label, keyboardType, iconPass, ...rest }, ref) {
         ref={ref}
         label={label}
         keyboardType={keyboardType}
-        tintColor={colors.primary}
-        baseColor={colors.darck_soft}
+        tintColor={touched && errors ? 'red' : colors.primary}
+        baseColor={touched && errors ? 'red' : colors.darck_soft}
         fontSize={16}
         labelFontSize={16}
+        defaultValue={defaultValue}
         secureTextEntry={iconPass ? visible : false}
         renderRightAccessory={() => {
           if (iconPass) {
@@ -35,6 +54,7 @@ function Input({ name, label, keyboardType, iconPass, ...rest }, ref) {
           }
         }}
       />
+      {touched && errors && <ErroMsg>{errors}</ErroMsg>}
     </Container>
   );
 }

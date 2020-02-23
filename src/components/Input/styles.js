@@ -18,3 +18,9 @@ export const ButtonIcon = styled.TouchableOpacity`
 export const IconCustom = styled(Icon).attrs({
   color: colors.dark_soft,
 })``;
+
+export const ErroMsg = styled.Text`
+  font-size: 12px;
+  color: red;
+  align-self: flex-start;
+`;
