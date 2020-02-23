@@ -83,7 +83,9 @@ export const TitleSign = styled.Text`
   font-family: ${fontFamilies.medium};
 `;
 
-export const ButtonSignIn = styled.TouchableOpacity`
+export const ButtonSignIn = styled.TouchableOpacity.attrs({
+  hitSlop: { top: 10, left: 10, bottom: 10, right: 10 },
+})`
   margin-left: 5px;
 `;
 

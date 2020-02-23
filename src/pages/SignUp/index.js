@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { TouchableWithoutFeedback, Keyboard, BackHandler } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -27,6 +27,19 @@ export default function SignUp() {
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  useEffect(() => {
+    const backPress = () => {
+      navigation.navigate('Presentation');
+      return true;
+    };
+
+    BackHandler.addEventListener('hardwareBackPress', backPress);
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', backPress);
+    };
+  }, [navigation]);
 
   return (
     <KeyboardAvoidingView>
@@ -58,7 +71,7 @@ export default function SignUp() {
                 />
                 <Input
                   label="Senha *"
-                  secureTextEntry
+                  iconPass
                   autoCapitalize="none"
                   autoCorrect={false}
                   ref={passwordRef}

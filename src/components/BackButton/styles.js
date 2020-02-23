@@ -1,11 +1,13 @@
-import { Platform } from 'react-native';
-
 import styled from 'styled-components/native';
 
+export const Container = styled.View`
+  width: 100%;
+  height: 60px;
+`;
+
 export const ButtonPress = styled.TouchableOpacity`
-  position: absolute;
-  top: ${Platform.OS === 'ios' ? 50 : 20}px;
-  left: 15px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  height: 60px;
 `;

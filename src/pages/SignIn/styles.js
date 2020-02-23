@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 
 import Button from '~/components/Button';
 import { colors, fontFamilies } from '~/styles/themes';
+import { heightPercentageToDP } from '~/styles/themes/responsive';
 
 export const KeyboardAvoidingView = styled.KeyboardAvoidingView.attrs({
   enabled: Platform.OS === 'ios',
@@ -22,20 +23,20 @@ export const Scroll = styled.ScrollView.attrs({
     flexGrow: 1,
     justifyContent: 'center',
   },
+  keyboardShouldPersistTaps: 'handled',
   showsVerticalScrollIndicator: false,
 })``;
 
 export const Container = styled.View`
   flex: 1;
   padding: 40px;
-  margin-top: 80px;
   background: ${colors.white};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 `;
 
 export const ViewTop = styled.View`
-  height: 120px;
+  height: ${heightPercentageToDP('13,39%')}px;
   justify-content: flex-end;
 `;
 
@@ -68,7 +69,9 @@ export const TitleSign = styled.Text`
   font-family: ${fontFamilies.medium};
 `;
 
-export const ButtonSignUp = styled.TouchableOpacity``;
+export const ButtonSignUp = styled.TouchableOpacity.attrs({
+  hitSlop: { top: 10, left: 10, bottom: 10, right: 10 },
+})``;
 
 export const TitleSignUp = styled.Text`
   color: ${colors.green};
