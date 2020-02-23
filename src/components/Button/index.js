@@ -1,24 +1,33 @@
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import { colors } from '~/styles/themes';
+
 import { Container, ButtonPress, Title } from './styles';
 
-export default function Button({ title, onPress }) {
+export default function Button({ onPress, title, loading }) {
   return (
     <Container>
       <ButtonPress onPress={onPress}>
-        <Title>{title}</Title>
+        {loading ? (
+          <ActivityIndicator color={colors.white} size="small" />
+        ) : (
+          <Title>{title}</Title>
+        )}
       </ButtonPress>
     </Container>
   );
 }
 
 Button.propTypes = {
-  title: PropTypes.string.isRequired,
   onPress: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
 };
 
 Button.defaultProps = {
   onPress: null,
+  loading: false,
 };

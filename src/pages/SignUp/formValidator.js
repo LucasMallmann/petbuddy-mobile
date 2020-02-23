@@ -1,7 +1,9 @@
 import { object, string } from 'yup';
 
 export default object().shape({
-  name: string().required('* Informe seu nome!'),
+  name: string()
+    .min(3, '* Mínimo 3 caracteres')
+    .required('* Informe seu nome!'),
   email: string()
     .required('* Informe seu e-mail!')
     .email('* Informe um e-mail válido!'),
