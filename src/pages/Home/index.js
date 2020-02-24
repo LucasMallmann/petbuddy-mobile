@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDispatch } from 'react-redux';
 
+import { useNavigation } from '@react-navigation/native';
+
 import Search from '~/components/Search';
 import { signOut } from '~/store/modules/auth/actions';
 import { colors } from '~/styles/themes';
@@ -110,7 +112,10 @@ export default function Home() {
       male: true,
     },
   ]);
+
   const dispatch = useDispatch();
+
+  const navigation = useNavigation();
 
   return (
     <>
@@ -165,7 +170,11 @@ export default function Home() {
               <ListPets
                 data={pets}
                 renderItem={({ item }) => (
-                  <ViewPet>
+                  <ViewPet
+                    onPress={() =>
+                      navigation.navigate('PetInfo', { data: item })
+                    }
+                  >
                     <ImagePet
                       source={{
                         uri: item.url,

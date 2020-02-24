@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 
 import { Container, ButtonPress } from './styles';
 
-export default function BackButton({ press }) {
+export default function BackButton({ press, color, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       <ButtonPress onPress={press}>
-        <Icon name="keyboard-arrow-left" size={40} color="#fff" />
+        <Icon name="keyboard-arrow-left" size={40} color={color || '#fff'} />
       </ButtonPress>
     </Container>
   );
@@ -17,4 +17,9 @@ export default function BackButton({ press }) {
 
 BackButton.propTypes = {
   press: PropTypes.func.isRequired,
+  color: PropTypes.string,
+};
+
+BackButton.defaultProps = {
+  color: null,
 };
