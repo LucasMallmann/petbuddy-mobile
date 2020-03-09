@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { useNavigation } from '@react-navigation/native';
 
 import Search from '~/components/Search';
+import api from '~/services/api';
 import { signOut } from '~/store/modules/auth/actions';
 import { colors } from '~/styles/themes';
 
@@ -43,75 +44,30 @@ import {
 } from './styles';
 
 export default function Home() {
-  const [types] = useState([
-    {
-      id: '1',
-      name: 'Cão',
-      active: true,
-    },
-    {
-      id: '2',
-      name: 'Gato',
-      active: false,
-    },
-  ]);
+  const [types, setTypes] = useState([]);
 
-  const [pets] = useState([
-    {
-      id: '1',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Alfredo',
-      breed: 'Golden retriver',
-      years: '2',
-      distance: '3,8',
-      male: true,
-    },
-    {
-      id: '2',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Nina',
-      breed: 'Pug',
-      years: '5',
-      distance: '1,8',
-      male: false,
-    },
-    {
-      id: '3',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Bob',
-      breed: 'Labrador',
-      years: '2',
-      distance: '1,2',
-      male: true,
-    },
-    {
-      id: '4',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Alfredo',
-      breed: 'Golden retriver',
-      years: '2',
-      distance: '3,8',
-      male: true,
-    },
-    {
-      id: '5',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Nina',
-      breed: 'Pug',
-      years: '5',
-      distance: '1,8',
-      male: false,
-    },
-    {
-      id: '6',
-      url: 'https://cdn2br.mundo.com/fotos/201803/20-73-600x400.jpg',
-      name: 'Bob',
-      breed: 'Labrador',
-      years: '2',
-      distance: '1,2',
-      male: true,
-    },
-  ]);
+  const [dogs, setDogs] = useState([]);
+
+  useEffect(() => {
+    async function loadTypes() {
+      const response = await api.get('types');
+
+      setTypes(response.data);
+    }
+
+    loadTypes();
+  }, []);
+
+  useEffect(() => {
+    async function loadPets() {
+      const response = await api.get('pets');
+      const type = types.find(t => t.active === true);
+
+      setDogs(response.data.filter(p => p.type === type.name));
+    }
+
+    loadPets();
+  }, [types]);
 
   const dispatch = useDispatch();
 
@@ -156,19 +112,29 @@ export default function Home() {
                 <ListTypes
                   data={types}
                   renderItem={({ item }) => (
-                    <ButtonType>
+                    <ButtonType
+                      onPress={() => {
+                        const newTypes = types.map(t =>
+                          t.id === item.id
+                            ? { ...t, active: true }
+                            : { ...t, active: false }
+                        );
+                        setTypes(newTypes);
+                      }}
+                    >
                       <ViewType active={item.active}>
                         <SvgType active={item.active} />
                       </ViewType>
-                      <TitleType active={item.active}>{item.name}</TitleType>
+                      <TitleType active={item.active}>{item.title}</TitleType>
                     </ButtonType>
                   )}
-                  keyExtractor={item => item.id}
+                  keyExtractor={item => String(item.id)}
                 />
               </ViewListType>
 
               <ListPets
-                data={pets}
+                data={dogs}
+                keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                   <ViewPet
                     onPress={() =>

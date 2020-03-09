@@ -1,0 +1,88 @@
+{
+  "types": [
+    {
+      "id": 1,
+      "name": "dog",
+      "title": "Cão",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "cat",
+      "title": "Gato",
+      "active": false
+    }
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "url": "https://animais.culturamix.com/blog/wp-content/gallery/fotos-golden-retriever-3/thumbs/thumbs_Fotos-Golden-Retriever-8.jpg",
+      "name": "Alfredo",
+      "breed": "Golden Retriver",
+      "years": 2,
+      "distance": 3.8,
+      "male": true,
+      "type": "dog"
+    },
+    {
+      "id": 2,
+      "url": "https://extra.globo.com/incoming/23952663-75f-7e9/w640h360-PROP/xsimba-.jpg.pagespeed.ic.QQ3OFVy_cm.jpg",
+      "name": "Bob",
+      "breed": "Vira-Lata",
+      "years": 5,
+      "distance": 1,
+      "male": true,
+      "type": "dog"
+    },
+    {
+      "id": 3,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Mops_oct09_cropped2.jpg/220px-Mops_oct09_cropped2.jpg",
+      "name": "Nina",
+      "breed": "Pug",
+      "years": 1,
+      "distance": 5.8,
+      "male": false,
+      "type": "dog"
+    },
+    {
+      "id": 4,
+      "url": "https://www.pets4homes.co.uk/images/classifieds/2018/07/31/2008716/2-year-old-apricot-female-standard-poodle-5b83814f65cd7.jpg",
+      "name": "Ana",
+      "breed": "Poodle",
+      "years": 3,
+      "distance": 9.8,
+      "male": false,
+      "type": "dog"
+    },
+    {
+      "id": 5,
+      "url": "https://www.petlove.com.br/images/breeds/193103/profile/original/pastor_alemao-p.jpg?1532539270",
+      "name": "Rick",
+      "breed": "Pastor-alemão",
+      "years": 3,
+      "distance": 2.8,
+      "male": true,
+      "type": "dog"
+    },
+    {
+      "id": 6,
+      "url": "https://statig1.akamaized.net/bancodeimagens/dj/fg/lv/djfglv6niqaljp4f4lf23btbx.jpg",
+      "name": "Mint",
+      "breed": "Persa",
+      "years": 1,
+      "distance": 2.3,
+      "male": false,
+      "type": "cat"
+    },
+    {
+      "id": 7,
+      "url": "https://live.mrf.io/statics/i/ps/meusanimais.com.br/wp-content/uploads/2017/11/gato-azul-russo.jpg",
+      "name": "Alf",
+      "breed": "Azul russo",
+      "years": 2,
+      "distance": 3.8,
+      "male": true,
+      "type": "cat"
+    }
+  ]
+}
