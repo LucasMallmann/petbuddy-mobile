@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 
+import Avatar from '~/components/Avatar';
 import Search from '~/components/Search';
 import { signOut } from '~/store/modules/auth/actions';
 import { colors } from '~/styles/themes';
@@ -22,7 +23,6 @@ import {
   TextLocationName,
   ViewRight,
   ButtonPerfil,
-  Avatar,
   Container,
   ViewListType,
   ListTypes,
@@ -125,7 +125,11 @@ export default function Home() {
           <SafeAreaView>
             <Header>
               <ViewLeft>
-                <ButtonDrawer>
+                <ButtonDrawer
+                  onPress={() =>
+                    navigation.dispatch(DrawerActions.openDrawer())
+                  }
+                >
                   <IconDrawer />
                 </ButtonDrawer>
               </ViewLeft>
@@ -141,10 +145,8 @@ export default function Home() {
               <ViewRight>
                 <ButtonPerfil onPress={() => dispatch(signOut())}>
                   <Avatar
-                    source={{
-                      uri:
-                        'https://api.adorable.io/avatars/50/abott@adorable.png',
-                    }}
+                    url="https://api.adorable.io/avatars/50/abott@adorable.png"
+                    size="p"
                   />
                 </ButtonPerfil>
               </ViewRight>
