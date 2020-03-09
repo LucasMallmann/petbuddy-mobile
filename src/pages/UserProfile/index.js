@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar, BackHandler } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 
 import BG from '../../assets/imgs/wave.png';
 import Avatar from '../../components/Avatar';
@@ -28,15 +27,11 @@ import {
 
 export default function UserProfile() {
   const [notification, setNotification] = useState(true);
-  const dispatch = useDispatch();
-  const loading = useSelector(state => state.auth.loading);
   const navigation = useNavigation();
-
-  // const passwordRef = useRef(null);
 
   useEffect(() => {
     const backPress = () => {
-      navigation.navigate('Home');
+      navigation.dispatch(DrawerActions.openDrawer());
       return true;
     };
 
@@ -53,8 +48,8 @@ export default function UserProfile() {
       <KeyboardAvoidingView>
         <SafeAreaView>
           <BackButton
-            press={() => navigation.navigate('Home')}
-            style={{ position: 'absolute', zIndex: 1 }}
+            press={() => navigation.dispatch(DrawerActions.openDrawer())}
+            style={{ backgroundColor: colors.primary }}
           />
           <Container>
             <ContainerAvatar>
@@ -67,11 +62,7 @@ export default function UserProfile() {
             </ContainerAvatar>
 
             <ContainerImage>
-              <Header
-                source={BG}
-                resizeMode="cover"
-                imageStyle={{ top: -40 }}
-              />
+              <Header source={BG} resizeMode="stretch" />
             </ContainerImage>
             <Container>
               <Scroll>
@@ -87,7 +78,7 @@ export default function UserProfile() {
                     <OptionTitle>Nome</OptionTitle>
                     <Row>
                       <OptionText>João Lucas</OptionText>
-                      <Icon name="chevron-right" size={22} color="#999" />
+                      <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
                   <Option
@@ -101,7 +92,7 @@ export default function UserProfile() {
                     <OptionTitle>E-mail</OptionTitle>
                     <Row>
                       <OptionText>j***@**.com</OptionText>
-                      <Icon name="chevron-right" size={22} color="#999" />
+                      <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
                   <Option
@@ -115,12 +106,13 @@ export default function UserProfile() {
                     <OptionTitle>Senha</OptionTitle>
                     <Row>
                       <OptionText>Alterar a senha</OptionText>
-                      <Icon name="chevron-right" size={22} color="#999" />
+                      <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
                   <Option onPress={() => setNotification(!notification)}>
+                    <OptionTitle>Notificações</OptionTitle>
                     <Row>
-                      <OptionTitle>Notificações</OptionTitle>
+                      <OptionText>Ative ou desative</OptionText>
                       <Switcher
                         thumbColor="#fff"
                         trackColor={{ true: '#7239F2' }}
@@ -133,13 +125,13 @@ export default function UserProfile() {
                     <OptionTitle>FAQ</OptionTitle>
                     <Row>
                       <OptionText>Tire suas dúvidas</OptionText>
-                      <Icon name="chevron-right" size={22} color="#999" />
+                      <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
                   <Option disableBorder>
                     <Row>
                       <OptionTitle>Sair</OptionTitle>
-                      <Icon name="chevron-right" size={22} color="#999" />
+                      <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
                 </ListOptions>

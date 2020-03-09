@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 
 import styled from 'styled-components/native';
 
@@ -18,21 +18,22 @@ export const KeyboardAvoidingView = styled.KeyboardAvoidingView.attrs({
 
 export const SafeAreaView = styled.SafeAreaView`
   flex: 1;
+  background: ${colors.primary};
 `;
 
 export const Scroll = styled.ScrollView.attrs({
-  keyboardShouldPersistTaps: 'handled',
   showsVerticalScrollIndicator: false,
 })`
-  margin-bottom: 30;
+  margin-bottom: 30px;
 `;
 
 export const Container = styled.View`
-  height: ${heightPercentageToDP('60%')}px;
+  flex: 1;
+  background: #fff;
 `;
 
 export const ContainerImage = styled.View`
-  height: ${heightPercentageToDP('35%')}px;
+  height: ${heightPercentageToDP('30%')}px;
   overflow: visible;
 `;
 
@@ -49,12 +50,12 @@ export const ContainerAvatar = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const UserName = styled.Text`
   font-family: ${fontFamilies.regular};
-  font-size: ${heightPercentageToDP('3%')}px;
+  font-size: 22px;
   color: #fff;
 `;
 
@@ -75,7 +76,7 @@ export const Option = styled.TouchableOpacity`
 export const OptionText = styled.Text`
   font-family: ${fontFamilies.regular};
   color: ${colors.gray};
-  font-size: ${heightPercentageToDP('2.5%')}px;
+  font-size: 18px;
 `;
 
 export const Row = styled.View`
@@ -87,7 +88,7 @@ export const Row = styled.View`
 export const OptionTitle = styled.Text`
   font-family: ${fontFamilies.medium};
   color: #000;
-  font-size: ${heightPercentageToDP('2.3%')}px;
+  font-size: 16px;
 `;
 
 export const Switcher = styled.Switch``;

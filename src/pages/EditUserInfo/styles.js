@@ -36,7 +36,6 @@ export const Container = styled.View`
   background: ${colors.white};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  border-width: 1;
 `;
 
 export const ViewTop = styled.View`
