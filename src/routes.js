@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useSelector } from 'react-redux';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';

@@ -5,8 +5,9 @@ import {
   Keyboard,
   BackHandler,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Formik } from 'formik';
 
 import { colors } from '~/styles/themes';
@@ -25,11 +26,15 @@ import {
   ButtonSignIn,
 } from './styles';
 
-export default function EditUserInfo({ route, navigation }) {
-  const dispatch = useDispatch();
-  const loading = useSelector(state => state.auth.loading);
+export default function EditUserInfo() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   const { title } = route.params;
   const { option } = route.params;
+
+  const loading = useSelector(state => state.auth.loading);
+
   const emailRef = useRef(null);
   const newEmailRef = useRef(null);
   const oldPasswordRef = useRef(null);
