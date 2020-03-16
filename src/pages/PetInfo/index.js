@@ -86,19 +86,14 @@ export default function PetInfo() {
             <BackButton
               press={() => navigation.goBack()}
               color={colors.dark_soft}
-              style={{ marginVertical: 20 }}
             />
             <Carousel
               ref={carouselRef}
               data={photos}
-              renderItem={({ item }) => (
-                <CardPet>
-                  <ImagePet source={{ uri: item.url }} />
-                </CardPet>
-              )}
+              renderItem={({ item }) => <ImagePet source={{ uri: item.url }} />}
               onSnapToItem={index => setIndexActive(index)}
               sliderWidth={widthPercentageToDP('100%')}
-              itemWidth={widthPercentageToDP('80%')}
+              itemWidth={widthPercentageToDP('100%')}
             />
             <Pagination
               dotsLength={photos.length}

@@ -28,12 +28,9 @@ export const Scroll = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })``;
 
-export const CardPet = styled.TouchableOpacity``;
-
 export const ImagePet = styled.Image`
-  width: ${widthPercentageToDP('80%')}px;
-  height: ${heightPercentageToDP('28%')}px;
-  border-radius: 20px;
+  width: ${widthPercentageToDP('100%')}px;
+  height: ${heightPercentageToDP('50%')}px;
 `;
 
 export const CardInfo = styled.View.attrs({

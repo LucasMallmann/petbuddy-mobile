@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { Container, ViewIconSearch, IconSearch, Input } from './styles';
+import {
+  Container,
+  ViewIconSearch,
+  IconSearch,
+  Input,
+  ViewIconFilter,
+  IconFilter,
+} from './styles';
 
 export default function Search() {
   return (
@@ -10,6 +17,10 @@ export default function Search() {
       </ViewIconSearch>
 
       <Input />
+
+      <ViewIconFilter>
+        <IconFilter />
+      </ViewIconFilter>
     </Container>
   );
 }

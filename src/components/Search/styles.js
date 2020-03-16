@@ -35,3 +35,16 @@ export const Input = styled.TextInput.attrs({
   font-size: 14px;
   font-family: ${fontFamilies.medium};
 `;
+
+export const ViewIconFilter = styled.TouchableOpacity`
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+`;
+
+export const IconFilter = styled(Icon).attrs({
+  name: 'filter-list',
+  size: 22,
+  color: colors.gray_light,
+})``;
