@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { useDispatch } from 'react-redux';
 
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 
 import Avatar from '~/components/Avatar';
 import Search from '~/components/Search';
 import api from '~/services/api';
-import { signOut } from '~/store/modules/auth/actions';
 import { colors } from '~/styles/themes';
 
 import {
@@ -69,8 +67,6 @@ export default function Home() {
     loadPets();
   }, [types]);
 
-  const dispatch = useDispatch();
-
   const navigation = useNavigation();
 
   return (
@@ -99,7 +95,9 @@ export default function Home() {
               </ViewMiddle>
 
               <ViewRight>
-                <ButtonPerfil onPress={() => dispatch(signOut())}>
+                <ButtonPerfil
+                  onPress={() => navigation.navigate('UserProfile')}
+                >
                   <Avatar
                     url="https://api.adorable.io/avatars/50/abott@adorable.png"
                     size="p"

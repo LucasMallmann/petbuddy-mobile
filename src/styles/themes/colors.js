@@ -10,6 +10,7 @@ export default {
   purple_light: '#BFA5F9',
   purple_semi_light: '#C578FF',
   white: '#fff',
+  dark: '#000',
   dark_soft: '#484848',
   dark_gray: '#747474',
 };

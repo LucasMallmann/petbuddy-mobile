@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar, BackHandler } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useDispatch } from 'react-redux';
 
 import { useNavigation, DrawerActions } from '@react-navigation/native';
+
+import { signOut } from '~/store/modules/auth/actions';
 
 import BG from '../../assets/imgs/wave.png';
 import Avatar from '../../components/Avatar';
@@ -16,6 +19,7 @@ import {
   Container,
   ContainerImage,
   ContainerAvatar,
+  EditAvatarButton,
   UserName,
   ListOptions,
   Option,
@@ -28,6 +32,8 @@ import {
 export default function UserProfile() {
   const [notification, setNotification] = useState(true);
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const backPress = () => {
@@ -53,11 +59,13 @@ export default function UserProfile() {
           />
           <Container>
             <ContainerAvatar>
-              <Avatar
-                url="https://api.adorable.io/avatars/50/abott@adorable.png"
-                size="M"
-                border
-              />
+              <EditAvatarButton>
+                <Avatar
+                  url="https://api.adorable.io/avatars/50/abott@adorable.png"
+                  size="M"
+                  border
+                />
+              </EditAvatarButton>
               <UserName>Luiza Avelino</UserName>
             </ContainerAvatar>
 
@@ -128,7 +136,7 @@ export default function UserProfile() {
                       <Icon name="chevron-right" size={28} color="#999" />
                     </Row>
                   </Option>
-                  <Option disableBorder>
+                  <Option disableBorder onPress={() => dispatch(signOut())}>
                     <Row>
                       <OptionTitle>Sair</OptionTitle>
                       <Icon name="chevron-right" size={28} color="#999" />

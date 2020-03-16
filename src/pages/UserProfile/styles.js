@@ -53,6 +53,8 @@ export const ContainerAvatar = styled.View`
   justify-content: space-around;
 `;
 
+export const EditAvatarButton = styled.TouchableOpacity``;
+
 export const UserName = styled.Text`
   font-family: ${fontFamilies.regular};
   font-size: 22px;
@@ -65,12 +67,13 @@ export const ListOptions = styled.View`
 `;
 
 export const Option = styled.TouchableOpacity`
-  border-bottom-width: ${props => (props.disableBorder ? 0 : 2)};
+  border-bottom-width: ${props => (props.disableBorder ? 0 : 2)}px;
   border-bottom-color: #999;
   width: ${widthPercentageToDP('90%')}px;
   height: ${heightPercentageToDP('10%')}px;
   display: flex;
   justify-content: space-around;
+  margin: 10px 0;
 `;
 
 export const OptionText = styled.Text`
