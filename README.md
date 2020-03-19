@@ -2,19 +2,33 @@
   <img src=".github/logo.png" alt="petbuddy" width="250px" />
 </h1>
 
-<h3 align="center"> This is a project about animal donation<h3>
-
 <br>
 
 <p align="center">
-  <img alt="Mockup" src=".github/mockup.png" width="100%">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#electric_plug-getting-started">Getting started</a>
 </p>
 
-## :star: Features
+<p align="center">
+  <img alt="Mockup" src=".github/mockup.png" width="50%">
+</p>
+
+## :rocket: Technologies
 
 This project features all the latest tools and practices in mobile development!
 
 - ⚛️ **React Native** — A lib that provides a way to create native apps for Android and iOS
+
+
+## 💻 Project
+
+This project is about animals donation
+
+## 🔖 Layout
+
+To visualize the layout of the project it will be through Figma.
 
 ## :electric_plug: Getting started
 
