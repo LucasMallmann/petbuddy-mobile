@@ -11,6 +11,8 @@
   <a href="#electric_plug-getting-started">Getting started</a>
 </p>
 
+<br>
+
 <p align="center">
   <img alt="Mockup" src=".github/mockup.png" width="50%">
 </p>
