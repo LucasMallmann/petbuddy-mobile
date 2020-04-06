@@ -67,7 +67,7 @@ export const ListOptions = styled.View`
 `;
 
 export const Option = styled.TouchableOpacity`
-  border-bottom-width: ${props => (props.disableBorder ? 0 : 2)}px;
+  border-bottom-width: ${props => (props.disableBorder ? '0' : '2')}px;
   border-bottom-color: #999;
   width: ${widthPercentageToDP('90%')}px;
   height: ${heightPercentageToDP('10%')}px;

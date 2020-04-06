@@ -9,10 +9,7 @@ import dog from '~/assets/imgs/dog.svg';
 import female from '~/assets/imgs/female.svg';
 import male from '~/assets/imgs/male.svg';
 import { colors, fontFamilies } from '~/styles/themes';
-import {
-  widthPercentageToDP,
-  heightPercentageToDP,
-} from '~/styles/themes/responsive';
+import { widthPercentageToDP } from '~/styles/themes/responsive';
 
 export const KeyboardAvoidingView = styled.KeyboardAvoidingView.attrs({
   enabled: Platform.OS === 'ios',

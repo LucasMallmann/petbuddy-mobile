@@ -30,3 +30,35 @@ export function signOut() {
     type: '@auth/SIGN_OUT',
   };
 }
+
+export function sendEmailRequest(email) {
+  return {
+    type: '@auth/SEND_EMAIL_REQUEST',
+    payload: { email },
+  };
+}
+
+export function sendEmailSuccess() {
+  return {
+    type: '@auth/SEND_EMAIL_SUCCESS',
+  };
+}
+
+export function sendEmailFailure() {
+  return {
+    type: '@auth/SEND_EMAIL_FAILURE',
+  };
+}
+
+export function openModalRequest(type, description) {
+  return {
+    type: '@auth/OPEN_MODAL_REQUEST',
+    payload: { type, description },
+  };
+}
+
+export function closeModalRequest() {
+  return {
+    type: '@auth/CLOSE_MODAL_REQUEST',
+  };
+}

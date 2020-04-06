@@ -52,6 +52,7 @@ function Input(
               </ButtonIcon>
             );
           }
+          return <></>;
         }}
       />
       {touched && errors && <ErroMsg>{errors}</ErroMsg>}
@@ -66,9 +67,13 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   keyboardType: PropTypes.string,
   iconPass: PropTypes.bool,
+  defaultValue: PropTypes.string.isRequired,
+  touched: PropTypes.bool.isRequired,
+  errors: PropTypes.string,
 };
 
 Input.defaultProps = {
   keyboardType: 'default',
   iconPass: false,
+  errors: null,
 };

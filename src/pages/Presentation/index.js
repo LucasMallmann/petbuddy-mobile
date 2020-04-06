@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -27,6 +28,10 @@ import {
 
 export default function Presentation() {
   const navigation = useNavigation();
+
+  useEffect(() => {
+    Icon.loadFont();
+  }, []);
 
   return (
     <>

@@ -59,10 +59,7 @@ export default function EditUserInfo() {
       <Formik
         initialValues={{ name: 'João Lucas' }}
         validationSchema={nameSchema}
-        onSubmit={values => {
-          Keyboard.dismiss();
-          // dispatch(signUpRequest(values.name, values.email, values.password));
-        }}
+        onSubmit={() => Keyboard.dismiss()}
       >
         {({
           values,

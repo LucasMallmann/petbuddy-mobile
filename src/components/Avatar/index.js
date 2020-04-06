@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 
+import PropTypes from 'prop-types';
+
 import { AvatarField } from './styles';
 
 function Avatar({ url, size, border }) {
@@ -7,3 +9,9 @@ function Avatar({ url, size, border }) {
 }
 
 export default forwardRef(Avatar);
+
+Avatar.propTypes = {
+  url: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  border: PropTypes.bool.isRequired,
+};

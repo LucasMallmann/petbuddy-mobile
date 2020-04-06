@@ -10,9 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 
+import Alert from '~/components/Alert';
 import BackButton from '~/components/BackButton';
 import Input from '~/components/Input';
-import { signUpRequest } from '~/store/modules/auth/actions';
+import { signUpRequest, closeModalRequest } from '~/store/modules/auth/actions';
 import { colors } from '~/styles/themes';
 
 import formValidator from './formValidator';
@@ -35,6 +36,9 @@ import {
 export default function SignUp() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
+  const open = useSelector(state => state.auth.open);
+  const type = useSelector(state => state.auth.type);
+  const description = useSelector(state => state.auth.description);
   const navigation = useNavigation();
 
   const emailRef = useRef(null);
@@ -154,6 +158,13 @@ export default function SignUp() {
                     <TitleSignUp>Entre aqui!</TitleSignUp>
                   </ButtonSignUp>
                 </ViewSignUp>
+
+                <Alert
+                  type={type}
+                  open={open}
+                  description={description}
+                  onPress={() => dispatch(closeModalRequest())}
+                />
               </Scroll>
             </Container>
           </SafeAreaView>

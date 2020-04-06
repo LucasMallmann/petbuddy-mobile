@@ -1,10 +1,15 @@
-import { Alert } from 'react-native';
-
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '~/services/api';
 
-import { signInSuccess, signInRequest, signFailure } from './actions';
+import {
+  signInSuccess,
+  signInRequest,
+  signFailure,
+  sendEmailSuccess,
+  sendEmailFailure,
+  openModalRequest,
+} from './actions';
 
 export function* signIn({ payload }) {
   try {
@@ -21,14 +26,15 @@ export function* signIn({ payload }) {
     const { error } = err.response.data;
 
     if (error === 'User not found' || error === 'Password does not match') {
-      Alert.alert(
-        'Falha na autenticação',
-        'Usuário não encontrado. Verifique seus dados!'
+      yield put(
+        openModalRequest(
+          'wrong',
+          'Usuário não encontrado! Verifique seus dados.'
+        )
       );
     } else {
-      Alert.alert(
-        'Falha na autenticação',
-        'Verifique sua conexão e tente mais tarde!'
+      yield put(
+        openModalRequest('wrong', 'Verifique sua conexão e tente mais tarde.')
       );
     }
 
@@ -46,12 +52,11 @@ export function* signUp({ payload }) {
   } catch (err) {
     const { error } = err.response.data;
 
-    if (error === 'User already exists.') {
-      Alert.alert('Falha no cadastro', 'E-mail já cadastrado!');
+    if (error === 'User already exists') {
+      yield put(openModalRequest('wrong', 'E-mail já cadastrado.'));
     } else {
-      Alert.alert(
-        'Falha no cadastro',
-        'Verifique sua conexão e tente mais tarde!'
+      yield put(
+        openModalRequest('wrong', 'Verifique sua conexão e tente mais tarde.')
       );
     }
 
@@ -69,8 +74,40 @@ export function setToken({ payload }) {
   }
 }
 
+export function* sendEmail({ payload }) {
+  try {
+    const { email } = payload;
+
+    yield call(api.post, '/forgot-password', { email });
+
+    yield put(sendEmailSuccess());
+
+    yield put(
+      openModalRequest(
+        'success',
+        'Verifique sua caixa de e-mail para continuar esta etapa.'
+      )
+    );
+  } catch (err) {
+    const { error } = err.response.data;
+
+    yield put(sendEmailFailure());
+
+    if (error === 'User not found') {
+      yield put(
+        openModalRequest('wrong', 'Usuário não tem cadastro no sistema.')
+      );
+    } else {
+      yield put(
+        openModalRequest('wrong', 'Verifique sua conexão e tente mais tarde.')
+      );
+    }
+  }
+}
+
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+  takeLatest('@auth/SEND_EMAIL_REQUEST', sendEmail),
 ]);

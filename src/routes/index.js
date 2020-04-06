@@ -13,6 +13,7 @@ import AddPet from '../pages/AddPet';
 import Chats from '../pages/Chats';
 import EditUserInfo from '../pages/EditUserInfo';
 import Favorites from '../pages/Favorites';
+import ForgotPassword from '../pages/ForgotPassword';
 import Home from '../pages/Home';
 import MyPets from '../pages/MyPets';
 import PetInfo from '../pages/PetInfo';
@@ -181,6 +182,7 @@ function Routes() {
           <Stack.Screen name="Presentation" component={Presentation} />
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         </Stack.Navigator>
       )}
     </>

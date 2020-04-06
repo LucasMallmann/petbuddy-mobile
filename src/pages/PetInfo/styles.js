@@ -31,6 +31,7 @@ export const Scroll = styled.ScrollView.attrs({
 export const ImagePet = styled.Image`
   width: ${widthPercentageToDP('100%')}px;
   height: ${heightPercentageToDP('50%')}px;
+  opacity: 1;
 `;
 
 export const CardInfo = styled.View.attrs({

@@ -51,45 +51,8 @@ export const ViewMiddle = styled.View`
   justify-content: center;
 `;
 
-export const ViewForgotPassword = styled.View`
-  flex-direction: row;
-`;
-
-export const ButtonForgotPassword = styled.TouchableOpacity.attrs({
-  hitSlop: { top: 10, left: 10, bottom: 10, right: 10 },
-})``;
-
-export const TitleForgotPassword = styled.Text`
-  color: ${colors.green};
-  font-size: 16px;
-  font-family: ${fontFamilies.medium};
-`;
-
-export const ViewButtonSignIn = styled.View`
+export const ViewButtonSendEmail = styled.View`
   margin: 30px 0;
 `;
 
-export const ButtonSignIn = styled(Button)``;
-
-export const ViewBottom = styled.View``;
-
-export const ViewSignUp = styled.View`
-  flex-direction: row;
-`;
-
-export const TitleSign = styled.Text`
-  color: ${colors.gray};
-  font-size: 16px;
-  font-family: ${fontFamilies.medium};
-`;
-
-export const ButtonSignUp = styled.TouchableOpacity.attrs({
-  hitSlop: { top: 10, left: 10, bottom: 10, right: 10 },
-})``;
-
-export const TitleSignUp = styled.Text`
-  color: ${colors.green};
-  font-size: 16px;
-  font-family: ${fontFamilies.medium};
-  margin-left: 5px;
-`;
+export const ButtonSendEmail = styled(Button)``;
