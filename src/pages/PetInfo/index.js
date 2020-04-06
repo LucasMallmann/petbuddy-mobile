@@ -9,10 +9,8 @@ import { colors } from '~/styles/themes';
 import { widthPercentageToDP } from '~/styles/themes/responsive';
 
 import {
-  SafeAreaView,
   Container,
   Scroll,
-  CardPet,
   ImagePet,
   CardInfo,
   ViewTopInfo,

@@ -7,8 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint --fix src --ext .js",
-	  "prepush": "lint"
+    "lint": "eslint --fix src --ext .js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.0",

@@ -79,7 +79,7 @@ function DrawerUser() {
         component={Home}
         options={{
           title: 'Adoção',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="pets"
               size={22}
@@ -93,7 +93,7 @@ function DrawerUser() {
         component={AddPet}
         options={{
           title: 'Adicionar pet',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="add"
               size={24}
@@ -107,7 +107,7 @@ function DrawerUser() {
         component={MyPets}
         options={{
           title: 'Meus pets',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="pets"
               size={22}
@@ -121,7 +121,7 @@ function DrawerUser() {
         component={Favorites}
         options={{
           title: 'Favoritos',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="favorite"
               size={22}
@@ -135,7 +135,7 @@ function DrawerUser() {
         component={Chats}
         options={{
           title: 'Mensagens',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="chat"
               size={22}
@@ -149,7 +149,7 @@ function DrawerUser() {
         component={UserProfile}
         options={{
           title: 'Perfil',
-          drawerIcon: ({ focused }) => (
+          drawerIcon: ({ focused }) => ( // eslint-disable-line
             <Icon
               name="person"
               size={22}

@@ -101,10 +101,7 @@ export default function EditUserInfo() {
       <Formik
         initialValues={{ oldEmail: '', newEmail: '' }}
         validationSchema={emailSchema}
-        onSubmit={values => {
-          Keyboard.dismiss();
-          // dispatch(signUpRequest(values.name, values.email, values.password));
-        }}
+        onSubmit={() => Keyboard.dismiss()}
       >
         {({
           values,
@@ -169,10 +166,7 @@ export default function EditUserInfo() {
           confirmPassword: '',
         }}
         validationSchema={passwordSchema}
-        onSubmit={values => {
-          Keyboard.dismiss();
-          // dispatch(signUpRequest(values.name, values.email, values.password));
-        }}
+        onSubmit={() => Keyboard.dismiss()}
       >
         {({
           values,

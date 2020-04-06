@@ -51,6 +51,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-props-no-spreading': 'off',
     'no-param-reassign': 'off',
+    'no-console': ['error', { allow: ['tron'] }],
   },
 	settings: {
 	    "import/resolver": {
