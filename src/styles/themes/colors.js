@@ -3,6 +3,7 @@ export default {
   primary_light: '#F7F3FE',
   yellow: '#FFB900',
   green: '#52E596',
+  green_medium: '#3EA249',
   gray: '#BABABA',
   gray_medium: '#BFBFBF',
   gray_light: '#D9D9D9',
@@ -11,6 +12,8 @@ export default {
   purple_semi_light: '#C578FF',
   white: '#fff',
   dark: '#000',
+  black_light: 'rgba(0,0,0,0.4)',
   dark_soft: '#484848',
   dark_gray: '#747474',
+  wrong: '#FE7276',
 };

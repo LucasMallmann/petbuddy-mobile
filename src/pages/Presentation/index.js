@@ -41,7 +41,6 @@ export default function Presentation() {
           <Container>
             <ViewTop>
               <Logo />
-
               <ViewTitle>
                 <Title>Bem-vindo</Title>
                 <Title>ao petbuddy App</Title>

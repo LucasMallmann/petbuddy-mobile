@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import checked from '~/assets/lottie/checked.json';
 import report from '~/assets/lottie/report.json';
-import fontFamilies from '~/styles/themes/fontFamilies';
+import { colors, fontFamilies } from '~/styles/themes';
 
 export const Modal = styled.Modal``;
 
@@ -11,13 +11,13 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: ${colors.black_light};
   padding: 0 30px;
 `;
 
 export const Card = styled.View`
   width: 100%;
-  background: #fff;
+  background: ${colors.white};
   border-radius: 10px;
 `;
 
@@ -41,7 +41,7 @@ export const Icon = styled(Lottie).attrs(props => ({
 export const Middle = styled.View`
   width: 90%;
   border-bottom-width: 1px;
-  border-bottom-color: #ccc;
+  border-bottom-color: ${colors.gray_light};
   align-self: center;
   justify-content: center;
   align-items: center;
@@ -71,12 +71,13 @@ export const ButtonAccept = styled.TouchableOpacity`
   height: 40px;
   justify-content: center;
   align-items: center;
-  background: ${props => (props.type === 'success' ? '#32BA7C' : '#FF7761')};
+  background: ${props =>
+    props.type === 'success' ? colors.green_medium : colors.wrong};
   border-radius: 20px;
 `;
 
 export const TitleButtonAccept = styled.Text`
   font-size: 20px;
   font-family: ${fontFamilies.semi_bold};
-  color: #fff;
+  color: ${colors.white};
 `;
