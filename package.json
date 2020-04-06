@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint --fix src --ext .js",
+	  "prepush": "lint"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.0",
@@ -60,6 +61,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.4.0",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^1.19.1",
